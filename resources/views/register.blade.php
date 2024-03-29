@@ -3,7 +3,15 @@
 	
 	 <div class="auth-box-w wider">
             <h4 class="auth-header" style="padding-top:20px;">Create new account</h4>
-            <form action="#">
+
+            @if($errors->any())
+			   @foreach($errors->all() as $error)
+		      <p style="color:red; text-align:center; margin-bottom: 0.1rem;">{{ $error }}</p>
+		      @endforeach
+		      @endif
+
+            <form action="{{route('studentRegister')}}" method="post">
+               @csrf
                <div class="form-group">
                   <label for=""> Your Name
                   </label>
@@ -29,7 +37,7 @@
                      <div class="form-group">
                         <label for="">Confirm Password
                         </label>
-                        <input class="form-control" placeholder="Password" type="password">
+                        <input class="form-control" placeholder="Password" type="password" name="password_confirmation">
                      </div>
                   </div>
                </div>
