@@ -10,6 +10,10 @@
 		      @endforeach
 		      @endif
 
+            @if(Session::has('sucess'))
+				<p style="color:green; text-align:center;">{{ Session::get('sucess') }}</p>
+			    @endif
+
             <form action="{{route('studentRegister')}}" method="post">
                @csrf
                <div class="form-group">

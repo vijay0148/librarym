@@ -24,3 +24,4 @@ Route::post('/register', [AuthController::class, 'studentRegister'])->name('stud
 
 
 Route::get('/login', [AuthController::class, 'loadlogin']);
+Route::post('/login', [AuthController::class, 'userlogin'])->name('userlogin');

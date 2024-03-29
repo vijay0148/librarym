@@ -37,4 +37,20 @@ class AuthController extends Controller
 	public function loadlogin(){
       return view('login');
 	}
+
+	public function userlogin(Request $request){
+     $request->validate([
+		'email'=>'String | required | email',
+		'password'=>'String | required',
+	 ]); 
+	 $usercredential = $request->only('email', 'password');
+		if(Auth::attempt($usercredential)){
+			
+				return redirect('/admin/dashboard');
+			
+		}else{
+		return back()->with('error', 'user name and password is incorrect')	;
+		}
+ 
+	}
 }
