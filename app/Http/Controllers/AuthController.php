@@ -45,12 +45,17 @@ class AuthController extends Controller
 	 ]); 
 	 $usercredential = $request->only('email', 'password');
 		if(Auth::attempt($usercredential)){
-			
-				return redirect('/admin/dashboard');
-			
+				return redirect('/dashboard');
 		}else{
 		return back()->with('error', 'user name and password is incorrect')	;
 		}
  
+	}
+
+
+
+	public function librarydashboard()
+	{
+		return view('/dashboard');
 	}
 }

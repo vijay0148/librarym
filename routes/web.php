@@ -25,3 +25,9 @@ Route::post('/register', [AuthController::class, 'studentRegister'])->name('stud
 
 Route::get('/login', [AuthController::class, 'loadlogin']);
 Route::post('/login', [AuthController::class, 'userlogin'])->name('userlogin');
+
+Route::group(['middleware'=>['web', 'checkAdmin']], function(){
+    Route::get('/dashboard', [AuthController::class, 'librarydashboard'])->name('dashboard');
+});
+    
+
