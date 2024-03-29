@@ -23,6 +23,7 @@
    <body class="auth-wrapper">
       <div class="all-wrapper menu-side with-pattern">
          @yield('register')
+         @yield('login')
       </div>
    </body>
 </html>
