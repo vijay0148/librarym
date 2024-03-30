@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +28,8 @@ Route::post('/login', [AuthController::class, 'userlogin'])->name('userlogin');
 
 Route::group(['middleware'=>['web', 'checkAdmin']], function(){
     Route::get('/dashboard', [AuthController::class, 'librarydashboard'])->name('dashboard');
+
+    Route::get('/registration', [StudentController::class, 'registration']);
 });
     
 

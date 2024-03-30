@@ -13,19 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('student', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
 			$table->string('uid');
             $table->string('name');
 			$table->string('fname');
-			$table->string('contact');
+			$table->string('phone');
+			$table->string('email');
 			$table->string('fee');
+			$table->string('pmode');
 			$table->string('dfee');
 			$table->string('duration');
-			$table->string('stiming');
-			$table->string('etiming');
+			$table->string('intime');
+			$table->string('outtime');
 			$table->string('adhaar')->unique();
-            $table->string('email')->unique();
+			$table->string('adharimage');
+			$table->string('image');
+            $table->string('address');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -38,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student');
+        Schema::dropIfExists('students');
     }
 };

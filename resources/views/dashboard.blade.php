@@ -1,8 +1,38 @@
 @extends('common\mainmaster')
 @section('datadisplay')
+
+
 <div class="content-w">
                <div class="content-i">
                   <div class="content-box">
+
+                  <div class="row pt-2">
+   <div class="col-6 col-sm-4 col-xxl-2">
+      <a class="element-box el-tablo centered trend-in-corner smaller" href="#">
+         <div class="value">500</div>
+         <div><h5>Total Students</h5></div>
+         <div class="trending trending-up"><span>12%</span><i class="os-icon os-icon-arrow-up6"></i></div>
+      </a>
+   </div>
+   <div class="col-6 col-sm-4 col-xxl-2">
+      <a class="element-box el-tablo centered trend-in-corner smaller" href="#">
+         <div class="value">50</div>
+         <div><h5>Enrolled This Month</h5></div>
+         <div class="trending trending-down"><span>12%</span><i class="os-icon os-icon-arrow-down6"></i></div>
+      </a>
+   </div>
+   <div class="col-6 col-sm-4 col-xxl-2">
+      <a class="element-box el-tablo centered trend-in-corner smaller" href="#">
+      <div class="value">500</div>
+         <div><h5>Total Earn</h5></div>
+         <div class="trending trending-up"><span>12%</span><i class="os-icon os-icon-arrow-up6"></i></div>
+      </a>
+   </div>
+
+ 
+ 
+</div>
+                  
                      <div class="element-wrapper">
                         <h6 class="element-header">Recent Transactions</h6>
                         <div class="element-box-tp">
