@@ -28,8 +28,6 @@ class StudentController extends Controller
             'intime'=>'String | required ',
             'outtime'=>'String | required ',
             'adhaar'=>'String | required | min:3',
-            'adharimage'=>'String | required ',
-            'image'=>'String | required ',
             'address'=>'String | required ',			 
 		]);
         
@@ -46,12 +44,26 @@ class StudentController extends Controller
         $student->intime = $request->intime;
         $student->outtime = $request->outtime;
         $student->adhaar = $request->adhaar;
-        $student->adharimage = $request->adharimage;
-        $student->image = $request->image;
+        // $student->adharimage = $request->adharimage;
+        // $student->image = $request->image;
+
+        if ($request->file('image')) {
+            $file = $request->file('adharimage');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('aadhar'),$filename);
+            $student['adharimage'] = $filename;
+        }
+        
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('studentpic'),$filename);
+            $student['image'] = $filename;
+        }
+
         $student->address = $request->address;
         $student->save();
 		return back()->with('sucess', 'your Register successfully');
-
 	}
 
 }

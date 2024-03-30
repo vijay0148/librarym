@@ -15,7 +15,7 @@
             @if(Session::has('sucess'))
 				<p style="color:green; text-align:center;">{{ Session::get('sucess') }}</p>
 			    @endif
-            <form action="{{route('studentregister')}}" method="post">
+            <form action="{{route('studentregister')}}" method="post" enctype="multipart/form-data">
             @csrf
             <h5 class="form-header">Default Layout</h5>
             <div class="form-desc">Discharge best employed your phase each the of shine. Be met even reason consider logbook redesigns. Never a turned interfaces among asking</div>
