@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 Route::get('/register', [AuthController::class, 'loadRegister']);
-Route::post('/register', [AuthController::class, 'studentRegister'])->name('studentRegister');
+Route::post('/register', [AuthController::class, 'Userregister'])->name('Userregister');
 
 
 Route::get('/login', [AuthController::class, 'loadlogin']);
@@ -30,6 +30,8 @@ Route::group(['middleware'=>['web', 'checkAdmin']], function(){
     Route::get('/dashboard', [AuthController::class, 'librarydashboard'])->name('dashboard');
 
     Route::get('/registration', [StudentController::class, 'registration']);
+
+    Route::post('/registration', [StudentController::class, 'studentregister'])->name('studentregister');    
 });
     
 

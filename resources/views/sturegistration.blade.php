@@ -6,37 +6,38 @@
    <div class="element-wrapper">
       <h6 class="element-header">Default Form Layout</h6>
       <div class="element-box">
-         <form>
+            <form action="{{route('studentregister')}}" method="post">
+            @csrf
             <h5 class="form-header">Default Layout</h5>
             <div class="form-desc">Discharge best employed your phase each the of shine. Be met even reason consider logbook redesigns. Never a turned interfaces among asking</div>
             
 			<fieldset class="form-group">
-             
+              
                <div class="row">
                   <div class="col-sm-6">
-                     <div class="form-group"><label for="">Name</label><input class="form-control" placeholder="First Name"></div>
+                     <div class="form-group"><label for="">Name</label><input class="form-control" name="name" placeholder="First Name"></div>
                   </div>
                   <div class="col-sm-6">
-                     <div class="form-group"><label for="">Father Name</label><input class="form-control" placeholder="Last Name"></div>
-                  </div>
-               </div>
-			   
-			    <div class="row">
-                  <div class="col-sm-6">
-                     <div class="form-group"><label for="">Phone</label><input class="form-control" placeholder="First Name"></div>
-                  </div>
-                  <div class="col-sm-6">
-                     <div class="form-group"><label for="">Email</label><input class="form-control" placeholder="Enter email" type="email"></div>
+                     <div class="form-group"><label for="">Father Name</label><input class="form-control" name="fname" placeholder="Father's Name"></div>
                   </div>
                </div>
 			   
 			    <div class="row">
                   <div class="col-sm-6">
-                     <div class="form-group"><label for="">Fees</label><input class="form-control" placeholder="First Name"></div>
+                     <div class="form-group"><label for="">Phone</label><input class="form-control" name="phone" placeholder="Phone"></div>
+                  </div>
+                  <div class="col-sm-6">
+                     <div class="form-group"><label for="">Email</label><input class="form-control" placeholder="email" type="email"></div>
+                  </div>
+               </div>
+			   
+			    <div class="row">
+                  <div class="col-sm-6">
+                     <div class="form-group"><label for="">Fees</label><input class="form-control" name="fee" placeholder="Fee"></div>
                   </div>
                   <div class="col-sm-6">
                      <div class="form-group"><label for="">Payment Mode</label>
-					  <select class="form-control">
+					  <select class="form-control" name="pmode">
 					  <option>Online</option>
 					  <option>Off Line</option>
                       </select>
@@ -46,38 +47,35 @@
 			   
 			    <div class="row">
                   <div class="col-sm-6">
-                     <div class="form-group"><label for="">Due Fee</label><input class="form-control" placeholder="First Name"></div>
+                     <div class="form-group"><label for="">Due Fee</label><input class="form-control" name="dfee" placeholder="Due fee"></div>
                   </div>
                   <div class="col-sm-6">
-                     <div class="form-group"><label for="">Duration</label><input class="form-control" placeholder="Last Name"></div>
+                     <div class="form-group"><label for="">Duration</label><input class="form-control" name="duration" placeholder="Duration"></div>
                   </div>
                </div>
 			   
 			    <div class="row">
                   <div class="col-sm-6">
-                     <div class="form-group"><label for="">IN Time</label><input class="form-control" placeholder="First Name"></div>
+                     <div class="form-group"><label for="">IN Time</label><input class="form-control" name="intime" placeholder="IN Time"></div>
                   </div>
                   <div class="col-sm-6">
-                     <div class="form-group"><label for="">OUT Time</label><input class="form-control" placeholder="Last Name"></div>
+                     <div class="form-group"><label for="">OUT Time</label><input class="form-control" name="outtime" placeholder="OUT Time"></div>
                   </div>
                </div>
 			   
 			   <div class="row">
                   <div class="col-sm-4">
-                     <div class="form-group"><label for="">Enter Aadhaar Number</label><input class="form-control" placeholder="First Name"></div>
+                     <div class="form-group"><label for="">Enter Aadhaar Number</label><input class="form-control" name="adhaar" placeholder="Enter Adhaar Number"></div>
                   </div>
                   <div class="col-sm-4">
-				  <div class="form-group"><label for="">Upload Aadhaar</label><br /> <input type="file" id="myFile" name="filename"></div>
+				  <div class="form-group"><label for="">Upload Aadhaar</label><br /> <input type="file" name="adharimage"></div>
                   </div>
 				  <div class="col-sm-4">
-				  <div class="form-group"><label for="">Upload Your Photo</label><br /> <input type="file" id="myFile" name="filename"></div>
+				  <div class="form-group"><label for="">Upload Your Photo</label><br /> <input type="file"  name="image"></div>
                   </div>
                </div>
-			   <div class="form-group"><label> Enter Your Current Address</label><textarea class="form-control" rows="3"></textarea></div>
-            </fieldset>
-			
-			
-			
+			   <div class="form-group"><label> Enter Your Current Address</label><textarea class="form-control" name="address" rows="3"></textarea></div>
+            </fieldset>	
             <div class="form-buttons-w"><button class="btn btn-primary" type="submit"> Submit</button></div>
          </form>
       </div>

@@ -14,7 +14,7 @@
 				<p style="color:green; text-align:center;">{{ Session::get('sucess') }}</p>
 			    @endif
 
-            <form action="{{route('studentRegister')}}" method="post">
+            <form action="{{route('Userregister')}}" method="post">
                @csrf
                <div class="form-group">
                   <label for=""> Your Name
