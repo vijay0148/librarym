@@ -6,6 +6,15 @@
    <div class="element-wrapper">
       <h6 class="element-header">Default Form Layout</h6>
       <div class="element-box">
+      @if($errors->any())
+			   @foreach($errors->all() as $error)
+		      <p style="color:red; text-align:center; margin-bottom: 0.1rem;">{{ $error }}</p>
+		      @endforeach
+		      @endif
+
+            @if(Session::has('sucess'))
+				<p style="color:green; text-align:center;">{{ Session::get('sucess') }}</p>
+			    @endif
             <form action="{{route('studentregister')}}" method="post">
             @csrf
             <h5 class="form-header">Default Layout</h5>
@@ -27,7 +36,7 @@
                      <div class="form-group"><label for="">Phone</label><input class="form-control" name="phone" placeholder="Phone"></div>
                   </div>
                   <div class="col-sm-6">
-                     <div class="form-group"><label for="">Email</label><input class="form-control" placeholder="email" type="email"></div>
+                     <div class="form-group"><label for="">Email</label><input class="form-control" name="email" placeholder="email" type="email"></div>
                   </div>
                </div>
 			   
