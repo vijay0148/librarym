@@ -24,7 +24,9 @@ return new class extends Migration
         $table->string('dfee')->nullable();
         $table->string('duration')->nullable();
         $table->string('intime')->nullable();
+        // $table->string('in_ampm')->nullable();
         $table->string('outtime')->nullable();
+        // $table->string('out_ampm')->nullable();
         $table->string('adhaar')->unique();
         $table->string('adharimage')->nullable();
         $table->string('image')->nullable();
