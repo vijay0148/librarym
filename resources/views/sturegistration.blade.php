@@ -11,7 +11,6 @@
 		      <p style="color:red; text-align:center; margin-bottom: 0.1rem;">{{ $error }}</p>
 		      @endforeach
 		      @endif
-
             @if(Session::has('sucess'))
 				<p style="color:green; text-align:center;">{{ Session::get('sucess') }}</p>
 			    @endif
@@ -36,7 +35,7 @@
                      <div class="form-group"><label for="">Phone</label><input class="form-control" name="phone" placeholder="Phone"></div>
                   </div>
                   <div class="col-sm-6">
-                     <div class="form-group"><label for="">Email</label><input class="form-control" name="email" placeholder="email" type="email"></div>
+                     <div class="form-group"><label for="">Email</label><input class="form-control" placeholder="email" type="email"></div>
                   </div>
                </div>
 			   
@@ -62,16 +61,54 @@
                      <div class="form-group"><label for="">Duration</label><input class="form-control" name="duration" placeholder="Duration"></div>
                   </div>
                </div>
-			   
-			    <div class="row">
-                  <div class="col-sm-6">
-                     <div class="form-group"><label for="">IN Time</label><input class="form-control" name="intime" placeholder="IN Time"></div>
-                  </div>
-                  <div class="col-sm-6">
-                     <div class="form-group"><label for="">OUT Time</label><input class="form-control" name="outtime" placeholder="OUT Time"></div>
+               <div class="row">
+               <div class="col-sm-6">
+                  <div class="form-group">
+                        <label for="intime">IN Time</label>
+                        <div class="row">
+                           <div class="col">
+                              <select class="form-control" name="in_hour">
+                              @for ($hour = 1; $hour <= 12; $hour++)
+                                 @for ($minute = 0; $minute < 60; $minute += 15)
+                                       <option value="{{ sprintf('%02d', $hour) }}:{{ sprintf('%02d', $minute) }}">{{ sprintf('%02d', $hour) }}:{{ sprintf('%02d', $minute) }}</option>
+                                 @endfor
+                              @endfor
+                              </select>
+                           </div>
+                           <div class="col">
+                              <select class="form-control" name="in_ampm">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                              </select>
+                           </div>
+                        </div>
                   </div>
                </div>
-			   
+               <div class="col-sm-6">
+                  <div class="form-group">
+                        <label for="outtime">OUT Time</label>
+                        <div class="row">
+                           <div class="col">
+                              <select class="form-control" name="out_hour">
+                              @for ($hour = 1; $hour <= 12; $hour++)
+                                 @for ($minute = 0; $minute < 60; $minute += 15)
+                                       <option value="{{ sprintf('%02d', $hour) }}:{{ sprintf('%02d', $minute) }}">{{ sprintf('%02d', $hour) }}:{{ sprintf('%02d', $minute) }}</option>
+                                 @endfor
+                              @endfor
+                              </select>
+                           </div>
+                           <div class="col">
+                              <select class="form-control" name="out_ampm">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                              </select>
+                           </div>
+                        </div>
+                  </div>
+               </div>
+            </div>
+
+
 			   <div class="row">
                   <div class="col-sm-4">
                      <div class="form-group"><label for="">Enter Aadhaar Number</label><input class="form-control" name="adhaar" placeholder="Enter Adhaar Number"></div>

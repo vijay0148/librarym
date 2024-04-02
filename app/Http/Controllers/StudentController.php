@@ -17,22 +17,25 @@ class StudentController extends Controller
     
     public function studentregister(Request $request){
 		$request->validate([
-			'name'=>'String | required | min:3',
-            'fname'=>'String | required | min:3',
-            'phone'=>'String | required | min:10',
-            'email'=>'String | required ',
-            'fee'=>'String | required ',
-            'pmode'=>'String | required',
-            'dfee'=>'String | required',
-            'duration'=>'String | required',
-            'intime'=>'String | required ',
-            'outtime'=>'String | required ',
-            'adhaar'=>'String | required | min:3',
-            'adharimage'=>'String | required ',
-            'image'=>'String | required ',
-            'address'=>'String | required ',			 
-		]);
-        
+            'name' => 'nullable|string | required',
+            'fname' => 'nullable|string|required',
+            'phone' => 'nullable|string',
+            'email' => 'nullable|string',
+            'fee' => 'nullable|string',
+            'pmode' => 'nullable|string',
+            'dfee' => 'nullable|string',
+            'duration' => 'nullable|string',
+            'in_hour' => 'nullable|string',
+
+            'outtime' => 'nullable|string',
+            'adhaar' => 'nullable|string|required',
+            'adharimage' => 'nullable|string',
+            'image' => 'nullable|string',
+            'address' => 'nullable|string',			 
+        ]);
+        $tim1 = $request->in_hour;
+        $inampm = $request->in_ampm;
+        $inhour= $tim1 . ' ' . $inampm;
 		$student = new Student;
         $student->uid = Auth::id();
 		$student->name = $request->name;
@@ -43,7 +46,7 @@ class StudentController extends Controller
         $student->pmode = $request->pmode;
         $student->dfee = $request->dfee;
         $student->duration = $request->duration;
-        $student->intime = $request->intime;
+        $student->intime = $inhour;
         $student->outtime = $request->outtime;
         $student->adhaar = $request->adhaar;
         $student->adharimage = $request->adharimage;
