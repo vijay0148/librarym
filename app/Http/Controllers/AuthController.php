@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Student;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -94,7 +95,8 @@ class AuthController extends Controller
 	 ]); 
 	 $usercredential = $request->only('email', 'password');
 		if(Auth::attempt($usercredential)){
-				return redirect('/dashboard');
+			   
+			return redirect('/dashboard');
 		}else{
 		return back()->with('error', 'user name and password is incorrect')	;
 		}
@@ -104,7 +106,11 @@ class AuthController extends Controller
 
 
 	public function librarydashboard()
-	{
-		return view('/dashboard');
+	{ 
+		 $userId = Auth::id();
+		 $stquantity = Student::where('uid', $userId)->count();
+		 $stdetail = Student::where('uid', $userId)->get();
+		return view('dashboard', compact('stquantity', 'stdetail'));
+		
 	}
 }

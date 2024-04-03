@@ -1,7 +1,6 @@
 @extends('common\mainmaster')
 @section('datadisplay')
 
-
 <div class="content-w">
                <div class="content-i">
                   <div class="content-box">
@@ -9,7 +8,7 @@
                   <div class="row pt-2">
    <div class="col-6 col-sm-4 col-xxl-2">
       <a class="element-box el-tablo centered trend-in-corner smaller" href="#">
-         <div class="value">500</div>
+         <div class="value">{{ $stquantity }}</div>
          <div><h5>Total Students</h5></div>
          <div class="trending trending-up"><span>12%</span><i class="os-icon os-icon-arrow-up6"></i></div>
       </a>
@@ -40,37 +39,51 @@
                               <table class="table table-padded">
                                  <thead>
                                     <tr>
-                                       <th>Status</th>
-                                       <th>Date</th>
-                                       <th>Description</th>
-                                       <th class="text-center">Category</th>
-                                       <th class="text-right">Amount</th>
+                                       <th>ID</th>
+                                       <th>Name</th>
+                                       <th>Father Name</th>
+                                       <th>Email</th>
+                                       <th class="text-center">Fee</th>
+                                       <th class="text-right">Batch</th>
                                     </tr>
                                  </thead>
                                  <tbody>
+
+                                 @foreach($stdetail as $student)
                                     <tr>
-                                       <td class="nowrap">
-                                          <span class="status-pill smaller green">
-                                          </span>
-                                          <span>Complete
-                                          </span>
-                                       </td>
                                        <td>
-                                          <span>Today
+                                       <span class="status-pill smaller green">
                                           </span>
-                                          <span class="smaller lighter">1:52am
-                                          </span>
+                                          <span>{{$student->id}}
+                                          </span>   
                                        </td>
-                                       <td class="cell-with-media"><img alt="" src="img/company1.png" style="height: 25px;">
-                                          <span>Banana Shakes LLC
-                                          </span>
+                                       <td class="nowrap">
+                                       {{$student->name}}
                                        </td>
-                                       <td class="text-center"><a class="badge badge-success" href="#">Shopping</a></td>
+                                       <td class="nowrap">
+                                       {{$student->fname}}
+                                       </td>
+                                       <td class="cell-with-media">
+                                       {{$student->email}}
+                                       </td>
+                                       <td class="text-center"><a class="badge badge-success" href="#">Rs.{{$student->fee}}</a></td>
                                        <td class="text-right bolder nowrap">
-                                          <span class="text-success">+ 1,250 USD
-                                          </span>
+                                       <a class="badge badge-success" href="#">{{$student->intime}}</a> | <a class="badge badge-success" href="#">{{$student->outtime}}</a>
                                        </td>
                                     </tr>
+
+                                    @endforeach
+
+
+
+
+
+
+
+
+
+
+
                                     <tr>
                                        <td class="nowrap">
                                           <span class="status-pill smaller red">
@@ -94,6 +107,13 @@
                                           </span>
                                        </td>
                                     </tr>
+
+
+
+
+
+
+
                                     <tr>
                                        <td class="nowrap">
                                           <span class="status-pill smaller yellow">
