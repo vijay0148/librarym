@@ -33,29 +33,31 @@
 </div>
                   
                      <div class="element-wrapper">
-                        <h6 class="element-header">Recent Transactions</h6>
+                        <h6 class="element-header">Enrolled Students</h6>
                         <div class="element-box-tp">
                            <div class="table-responsive">
                               <table class="table table-padded">
                                  <thead>
                                     <tr>
-                                       <th>ID</th>
-                                       <th>Name</th>
-                                       <th>Father Name</th>
-                                       <th>Email</th>
+                                       <th class="text-center">ID</th>
+                                       <th class="text-center">Name</th>
+                                       <th class="text-center">Father's Name</th>
+                                       <th class="text-center">Contact</th>
                                        <th class="text-center">Fee</th>
-                                       <th class="text-right">Batch</th>
+                                       <th class="text-center">Batch Hours</th>
+                                       <th class="text-center">In Time</th>
+                                       <th class="text-center">Out Time</th>
+                                       <th class="text-center">Adhaar</th>
+                                       <th class="text-center">Actions</th>
                                     </tr>
                                  </thead>
                                  <tbody>
-
+                                 @php $counter = 1; @endphp
                                  @foreach($stdetail as $student)
                                     <tr>
                                        <td>
-                                       <span class="status-pill smaller green">
-                                          </span>
-                                          <span>{{$student->id}}
-                                          </span>   
+                                          <span class="status-pill smaller green"></span>
+                                          <span>{{ $counter }}</span>   
                                        </td>
                                        <td class="nowrap">
                                        {{$student->name}}
@@ -64,156 +66,60 @@
                                        {{$student->fname}}
                                        </td>
                                        <td class="cell-with-media">
-                                       {{$student->email}}
+                                       {{$student->phone}}
                                        </td>
-                                       <td class="text-center"><a class="badge badge-success" href="#">Rs.{{$student->fee}}</a></td>
-                                       <td class="text-right bolder nowrap">
-                                       <a class="badge badge-success" href="#">{{$student->intime}}</a> | <a class="badge badge-success" href="#">{{$student->outtime}}</a>
+                                       <td class="cell-with-media">
+                                       {{$student->fee}}
+                                       </td>
+                                       <td class="cell-with-media">
+                                       {{$student->duration}}
+                                       </td>
+                                       <td class="cell-with-media">
+                                       {{$student->intime}}
+                                       </td>
+                                       <td class="cell-with-media">
+                                       {{$student->outtime}}
+                                       </td>
+                                       <td class="cell-with-media">
+                                       {{$student->adhaar}}
+                                       </td>
+                                       <td>
+                                       <!-- <button class="mr-2 mb-2 btn btn-primary" type="button"> view</button> -->
+                                       <button class="mr-2 mb-2 btn btn-primary" data-toggle="modal" data-target="#viewModal" data-student="{{ json_encode($student) }}">View</button>
                                        </td>
                                     </tr>
-
+                                    @php $counter++; @endphp
                                     @endforeach
-
-
-
-
-
-
-
-
-
-
-
-                                    <tr>
-                                       <td class="nowrap">
-                                          <span class="status-pill smaller red">
-                                          </span>
-                                          <span>Declined
-                                          </span>
-                                       </td>
-                                       <td>
-                                          <span>Jan 19th
-                                          </span>
-                                          <span class="smaller lighter">3:22pm
-                                          </span>
-                                       </td>
-                                       <td class="cell-with-media"><img alt="" src="img/company2.png" style="height: 25px;">
-                                          <span>Stripe Payment Processing
-                                          </span>
-                                       </td>
-                                       <td class="text-center"><a class="badge badge-danger" href="#">Cafe</a></td>
-                                       <td class="text-right bolder nowrap">
-                                          <span class="text-success">+ 952.23 USD
-                                          </span>
-                                       </td>
-                                    </tr>
-
-
-
-
-
-
-
-                                    <tr>
-                                       <td class="nowrap">
-                                          <span class="status-pill smaller yellow">
-                                          </span>
-                                          <span>Pending
-                                          </span>
-                                       </td>
-                                       <td>
-                                          <span>Yesterday
-                                          </span>
-                                          <span class="smaller lighter">7:45am
-                                          </span>
-                                       </td>
-                                       <td class="cell-with-media"><img alt="" src="img/company3.png" style="height: 25px;">
-                                          <span>MailChimp Services
-                                          </span>
-                                       </td>
-                                       <td class="text-center"><a class="badge badge-warning" href="#">Restaurants</a></td>
-                                       <td class="text-right bolder nowrap">
-                                          <span class="text-danger">- 320 USD
-                                          </span>
-                                       </td>
-                                    </tr>
-                                    <tr>
-                                       <td class="nowrap">
-                                          <span class="status-pill smaller yellow">
-                                          </span>
-                                          <span>Pending
-                                          </span>
-                                       </td>
-                                       <td>
-                                          <span>Jan 23rd
-                                          </span>
-                                          <span class="smaller lighter">2:12pm
-                                          </span>
-                                       </td>
-                                       <td class="cell-with-media"><img alt="" src="img/company1.png" style="height: 25px;">
-                                          <span>Starbucks Cafe
-                                          </span>
-                                       </td>
-                                       <td class="text-center"><a class="badge badge-primary" href="#">Shopping</a></td>
-                                       <td class="text-right bolder nowrap">
-                                          <span class="text-success">+ 17.99 USD
-                                          </span>
-                                       </td>
-                                    </tr>
-                                    <tr>
-                                       <td class="nowrap">
-                                          <span class="status-pill smaller green">
-                                          </span>
-                                          <span>Complete
-                                          </span>
-                                       </td>
-                                       <td>
-                                          <span>Jan 12th
-                                          </span>
-                                          <span class="smaller lighter">9:51am
-                                          </span>
-                                       </td>
-                                       <td class="cell-with-media"><img alt="" src="img/company4.png" style="height: 25px;">
-                                          <span>Ebay Marketplace
-                                          </span>
-                                       </td>
-                                       <td class="text-center"><a class="badge badge-danger" href="#">Groceries</a></td>
-                                       <td class="text-right bolder nowrap">
-                                          <span class="text-danger">- 244 USD
-                                          </span>
-                                       </td>
-                                    </tr>
-                                    <tr>
-                                       <td class="nowrap">
-                                          <span class="status-pill smaller yellow">
-                                          </span>
-                                          <span>Pending
-                                          </span>
-                                       </td>
-                                       <td>
-                                          <span>Jan 9th
-                                          </span>
-                                          <span class="smaller lighter">12:45pm
-                                          </span>
-                                       </td>
-                                       <td class="cell-with-media"><img alt="" src="img/company2.png" style="height: 25px;">
-                                          <span>Envato Templates Inc
-                                          </span>
-                                       </td>
-                                       <td class="text-center"><a class="badge badge-primary" href="#">Business</a></td>
-                                       <td class="text-right bolder nowrap">
-                                          <span class="text-success">+ 340 USD
-                                          </span>
-                                       </td>
-                                    </tr>
                                  </tbody>
                               </table>
                            </div>
                         </div>
                      </div>
-                    
-                    
+                     </div> 
+                     <!-- Modal -->
+                     <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                           <h5 class="modal-title" id="exampleModalLabel">Student Details</h5>
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                           </div>
+                           <div class="modal-body">
+                           <div id="studentDetails">
+                           <!-- Details will be populated here -->
+                           </div>
+                           </div>
+                           <div class="modal-footer">
+                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                           </div>
+                        </div>
+                     </div>
+                     </div>
+
                      
+
                   </div>
                </div>
             </div>
